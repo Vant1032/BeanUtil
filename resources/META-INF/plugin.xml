@@ -1,0 +1,31 @@
+<idea-plugin>
+    <id>cc.vant.beanutil</id>
+    <name>BeanModifier</name>
+    <version>1.1</version>
+    <vendor>Vant</vendor>
+
+    <description>
+        <![CDATA[
+    ]]>
+    </description>
+
+    <change-notes>
+        <![CDATA[]]>
+    </change-notes>
+
+    <idea-version since-build="181" />
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+    </extensions>
+
+    <actions>
+        <action id="Bean.Modify" class="cc.vant.beanutil.ModifyAction" text="BeanModify"
+                description="Modify bean">
+            <add-to-group group-id="JavaGenerateGroup1" anchor="after"
+                          relative-to-action="Actions.ActionsPlugin.GenerateToString" />
+        </action>
+    </actions>
+
+</idea-plugin>
