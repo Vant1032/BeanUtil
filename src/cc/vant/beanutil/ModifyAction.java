@@ -24,7 +24,6 @@ public class ModifyAction extends AnAction {
             return;
         }
 
-
         List<PsiField> nonStaticFiled = getNonStaticFiled(psiClass);
 
         Project thisProject = psiClass.getProject();
@@ -69,6 +68,13 @@ public class ModifyAction extends AnAction {
         WriteCommandAction.runWriteCommandAction(thisProject, new FinalRunnable(toAdd));
     }
 
+
+    @Override
+    public void update(AnActionEvent e) {
+        PsiClass psiClass = Utils.getPsiClassFromContext(e);
+        e.getPresentation().setEnabled(psiClass != null);
+    }
+
     /**
      * 寻找要加上注解的filed
      */
@@ -76,7 +82,6 @@ public class ModifyAction extends AnAction {
         List<PsiField> validField = new ArrayList<>();
         PsiField[] allFields = psiClass.getFields();
         for (PsiField field : allFields) {
-            PsiType type = field.getType();
             if (field.hasModifier(JvmModifier.STATIC)) {
                 continue;
             }

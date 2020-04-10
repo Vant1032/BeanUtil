@@ -1,11 +1,12 @@
 <idea-plugin>
     <id>cc.vant.beanutil</id>
     <name>BeanModifier</name>
-    <version>1.1</version>
+    <version>1.2</version>
     <vendor>Vant</vendor>
 
     <description>
         <![CDATA[
+        用于自动生成JsonField注解，标注在每个Java类的属性上。
     ]]>
     </description>
 
